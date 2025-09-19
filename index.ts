@@ -13,7 +13,6 @@ const longText = fs.readFileSync("demo.txt").toString();
 console.log(longText.length);
 
 const mockLLM = traceable(async (messages: Record<string, any>[]) => {
-  await new Promise((resolve) => setTimeout(resolve, Math.random() * 100));
   if (messages.length === 1) {
     return {
       role: "assistant",
