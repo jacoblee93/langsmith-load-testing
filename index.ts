@@ -54,6 +54,14 @@ const mockTool = traceable(async (_input: Record<string, any>) => {
 const largeTest = traceable(async (message: Record<string, any>) => {
   const res = await mockLLM([message]);
   const toolRes = await mockTool(res);
+  const otherTraceable = traceable(async (i: number) => {
+    return `testing some other spans ${i}`
+  }, {
+    name: "OtherTraceable"
+  });
+  for (let i = 0; i < 50; i++) {
+    await otherTraceable(i);
+  }
   return mockLLM([message, res, toolRes]);
 }, {
   client,

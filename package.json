@@ -12,7 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "dotenv": "^17.2.1",
-    "langsmith": "^0.3.69",
+    "langsmith": "^0.3.71",
     "tsx": "^4.20.4"
   },
   "devDependencies": {
